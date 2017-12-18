@@ -1,25 +1,109 @@
-<div>
-  <!-- <mat-toolbar color="primary">
-    <span><mat-icon>create</mat-icon></span>
+<div align="center">
 
-    <span>Add New Department</span>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onsubmit()">
+
+    <mat-form-field class="example-full-width" hintLabel="Max 20 characters">
+      <input matInput placeholder="First Name" value="Sushi" #input formControlName="username">
+    </mat-form-field>
+    <br><br>
+    <mat-form-field class="example-full-width" hintLabel="Max 20 characters">
+      <input matInput placeholder="Last Name" value="Sharma"  formControlName="lastname">
+    </mat-form-field>
+    <br><br>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email"  formControlName="email">
+    </mat-form-field>
+<br><br>
+    <mat-radio-group >
+  <mat-radio-button  *ngFor="let gender of genders" [value]="gender.id">
+    {{gender.name}}
+    <br>
+  </mat-radio-button>
+</mat-radio-group>
+<br><br>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<br><br>
+
+<div class="frm-ctrl">
+  <div class="line_ctrl">
+ <mat-form-field >
+   
+      <input matInput placeholder="City">
+    </mat-form-field>
+  </div>
+    
+    <div class="line_ctrl">
+    <mat-form-field >
+      <input matInput placeholder="State"[matAutocomplete]="auto"  formControlName="state">
+       <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+    </mat-form-field>
+    </div>
+
+     <div class="line_ctrl">
+    <mat-form-field >
+      <input matInput placeholder="zip" >
+    </mat-form-field>
+    <button mat-icon-button color="accent">
+    <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+  </button>
+    </div>
+    <br><br>
+
+
+    <mat-form-field>
+  <mat-select placeholder="Country" formControlName="countrycontrol" required >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let country of countries" [value]="country.id">
+      {{country.name}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="loginForm.controls.countrycontrol.hasError('required')">Please choose an country</mat-error>
+  <mat-hint>{{loginForm.controls.countrycontrol.value?.name}}</mat-hint>
+</mat-form-field>
+
+
+<br><br>
+   <mat-label>Favorite Pizza</mat-label>
+      <mat-checkbox  >French Bread</mat-checkbox>
+      <mat-checkbox >Chicago slice</mat-checkbox>
+      <mat-checkbox [indeterminate]="true">Tandoori Panner</mat-checkbox>
+      <mat-checkbox [disabled]="true">Tikka Chicken</mat-checkbox>
+
+<br><br>
+      <mat-checkbox *ngFor="let country of countries"[value]="country.id"> 
+        {{country.name}}
+      </mat-checkbox>
+
+  <div><strong>I have read and agree to the terms of service</strong>
+    <mat-checkbox color="primary"></mat-checkbox>
+  <button mat-raised-button color="warn" (click)="openDialog()">Sign Up</button>
+  </div>
+<br><br>
+       <button type="submit" [disabled]= "loginForm.invalid" mat-raised-button color="primary">Submit</button>
+  <button type="reset" mat-raised-button color="accent">reset</button>
+
+<div>dialog content-{{data.animal}}</div>
 
     
-  </mat-toolbar> -->
+    </div>
+      
 
 
-<form  [formGroup]="loginForm" (ngSubmit)="onsubmit()">
-  
-    <mat-form-field  hintLabel="Max 10 characters">
-      <!-- <input matInput #input placeholder="First name" formControlName="firstName"> -->
-      <!-- <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint> -->
 
-      <input matInput placeholder="First Name" value="Sushi" formControlName="username">
-      <small [hidden]="loginForm.controls['username'].valid||loginForm.controls['username'].pristine">
-        <span [hidden]="!loginForm.controls.username.hasError('invalidPattern')">Username pattern is not valid </span>
-        <span [hidden]="!loginForm.controls.username.hasError('maxlengthValidator')">Max length is 20 </span>
-      </small>
-    </mat-form-field>
+
+
+
+
+
     <!-- <mat-form-field class="example-full-width" placeholder="Last Name" hintLabel="Max 10 characters">
       <input matInput #inputl placeholder="Last Name" formControlName="lastName">
       <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
@@ -51,5 +135,5 @@
     </div>
   </form>
 </div> -->
-</form>
-  </div>
+  </form>
+</div>

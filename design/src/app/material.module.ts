@@ -6,8 +6,17 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatCardModule,
-  MatInputModule
+  MatInputModule,
+  MatRadioModule,
+   MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule,
+  MatCheckboxModule
+
 } from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
+
 
 @NgModule({
   imports: [
@@ -16,7 +25,16 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    
+    
+    
   ],
   exports: [
     MatButtonModule,
@@ -24,7 +42,15 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatCheckboxModule,
+   
+    
   ]
 })
 export class MaterialModule {}
