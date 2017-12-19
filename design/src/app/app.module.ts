@@ -11,6 +11,7 @@ import { MockAddComponent } from './mock-add/mock-add.component';
 import { DialogComponenetComponent } from './dialog-componenet/dialog-componenet.component';
 import { MatDialog } from "@angular/material";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,9 @@ import { MatDialog } from "@angular/material";
     MaterialModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+   
+   
     
   ],
   entryComponents:[DialogComponenetComponent],

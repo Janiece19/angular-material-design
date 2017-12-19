@@ -51,13 +51,15 @@ genders:Array<Gender>=[
 ]
   createForm() {
     this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required, Validator(/^[a-zA-Z0-9]+$/), maxLength()]),
+      username: new FormControl('Sushi', [Validators.required, Validator(/^[a-zA-Z0-9]+$/), maxLength()]),
       lastname: new FormControl('', [Validators.required,  maxLength()]),
       // passwrd: new FormControl('', [Validators.required, Validator(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{6,8})/), maxLength1(), this.formObj.passWord()]),
       // confirmpasswd: new FormControl('', [Validators.required, this.formObj.checkPassWord()]),
       email: new FormControl('', [Validators.required, Validator(/(\w+)\@(\w+)\.[a-zA-Z]/g)]),
       state:new FormControl('',Validators.required),
+      gender:new FormControl('',Validators.required),
       countrycontrol:new FormControl('',Validators.required),
+      toppings:new FormControl('',Validators.required),
       // dob: new FormControl('',[Validators.required, maxAge()]),
       // time1:new FormControl('',[Validators.required,this.formObj.checkStartTime(),this.formObj.checkInvalidDateFormat1()]),
       // time2:new FormControl('',[Validators.required,this.formObj.checkEndTime(),this.formObj.checkInvalidDateFormat2()])
@@ -91,7 +93,7 @@ genders:Array<Gender>=[
 
   
  countries = [
-    {name: 'India', id: '1'},
+    {name: 'India', id: 1},
     {name: 'Canada', id: '2'},
     {name: 'China', id: '3'},
     {name: 'Nepal', id: '4'},
@@ -107,6 +109,8 @@ openDialog(): void {
       this.animal = result;
     });
   }
+
+  toppingList = [{id:1,name:'Extra cheese'}, {id:2,name:'Mushroom'}, {id:3,name:'Onion'}, {id:4,name:'Pepperoni'},{id:5,name: 'Sausage'}, {id:6,name:'Tomato'}];
 
 
 

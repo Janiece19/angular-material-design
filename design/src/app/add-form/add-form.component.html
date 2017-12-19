@@ -1,22 +1,47 @@
 <div align="center">
+   <mat-toolbar color="primary">
+    <span><mat-icon>create</mat-icon></span>
+
+    <span>Add New Department</span>
+
+    
+  </mat-toolbar> 
+
 
 
   <form [formGroup]="loginForm" (ngSubmit)="onsubmit()">
 
     <mat-form-field class="example-full-width" hintLabel="Max 20 characters">
-      <input matInput placeholder="First Name" value="Sushi" #input formControlName="username">
+      <input matInput placeholder="First Name"  #input formControlName="username">
+      <mat-error *ngIf="loginForm.controls.username.hasError('maxlengthValidator')">Max length is 20 
+        </mat-error>
+         <mat-error *ngIf="loginForm.controls.username.hasError('required')">Please enter the firstname
+        </mat-error>
+         <mat-error *ngIf="loginForm.controls.username.hasError('invalidPattern')&& !loginForm.controls.username.hasError('required')">Invalid firstName
+        </mat-error>
     </mat-form-field>
     <br><br>
     <mat-form-field class="example-full-width" hintLabel="Max 20 characters">
       <input matInput placeholder="Last Name" value="Sharma"  formControlName="lastname">
+      <mat-error *ngIf="loginForm.controls.lastname.hasError('maxlengthValidator')">Max length is 20 
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls.lastname.hasError('required')">Please enter the lastname
+        </mat-error>
+         <mat-error *ngIf="loginForm.controls.username.hasError('invalidPattern')&& !loginForm.controls.lastname.hasError('required')">Invalid lastName
+        </mat-error>
     </mat-form-field>
     <br><br>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Email"  formControlName="email">
+     
+        <mat-error *ngIf="loginForm.controls.email.hasError('required')">Please enter the lastname
+        </mat-error>
+         <mat-error *ngIf=" loginForm.controls.email.hasError('invalidPattern')&& !loginForm.controls.email.hasError('required')">Invalid email
+        </mat-error>
     </mat-form-field>
 <br><br>
     <mat-radio-group >
-  <mat-radio-button  *ngFor="let gender of genders" [value]="gender.id">
+  <mat-radio-button  *ngFor="let gender of genders" [value]="gender.id" required>
     {{gender.name}}
     <br>
   </mat-radio-button>
@@ -69,7 +94,13 @@
   <mat-error *ngIf="loginForm.controls.countrycontrol.hasError('required')">Please choose an country</mat-error>
   <mat-hint>{{loginForm.controls.countrycontrol.value?.name}}</mat-hint>
 </mat-form-field>
-
+<br><br>
+<!--Multiple selection select box-->
+<mat-form-field>
+  <mat-select placeholder="Toppings" formControlName="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping.id">{{topping.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
 
 <br><br>
    <mat-label>Favorite Pizza</mat-label>
@@ -90,8 +121,11 @@
 <br><br>
        <button type="submit" [disabled]= "loginForm.invalid" mat-raised-button color="primary">Submit</button>
   <button type="reset" mat-raised-button color="accent">reset</button>
+  <br>
+  <mat-slide-toggle>Slide me!</mat-slide-toggle>
+  <br>
 
-<div>dialog content-{{data.animal}}</div>
+<div>dialog content-{{animal}}</div>
 
     
     </div>

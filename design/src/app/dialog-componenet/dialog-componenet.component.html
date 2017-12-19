@@ -1,4 +1,5 @@
-<p mat-dialog-content>
+<div>
+  <p mat-dialog-content>
   Website terms and conditions may perform a number of different roles. They may be used to satisfy legal disclosure obligations, to grant users rights to use website materials, to impose acceptable use obligations, to limit (or attempt to limit) warranties and disclaim (or attempt to disclaim) liabilities, and more generally to structure the legal relationships between the website operator and users.
 
 This terms and conditions document covers some of the same ground as our website disclaimer and website copyright notice documents. It should be used in conjunction with a privacy policy document.
@@ -7,9 +8,10 @@ This terms and conditions document covers some of the same ground as our website
     <input matInput [(ngModel)]="data.animal">
   </mat-form-field>
 The terms and conditions contain the following sections.</p>
+</div>
 <div mat-dialog-actions>
 <button mat-button [mat-dialog-close]="data.animal">Ok</button>
- <button mat-button (click)="onNoClick()" >No Thanks</button>
+ <button mat-button (click)="onNoClick()">No Thanks</button>
  </div>
 
 

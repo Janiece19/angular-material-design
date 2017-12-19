@@ -11,7 +11,9 @@ import {
    MatDatepickerModule,
   MatNativeDateModule,
   MatSelectModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatDialogModule
 
 } from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -32,6 +34,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatAutocompleteModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatSlideToggleModule,
+    MatDialogModule
     
     
     
@@ -49,6 +53,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatAutocompleteModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatSlideToggleModule,
+    MatDialogModule
    
     
   ]
